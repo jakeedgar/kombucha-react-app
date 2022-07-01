@@ -59,42 +59,29 @@ class KegControl extends React.Component {
     this.setState({editing: true});
   }
 
-    handleDecrementingPints = () => {
-        const kegToDecrement = this.state.selectedKeg;
-        if (this.state.selectedKeg.pints !== 0){
-            const pintsToDecrement = {
-                name: kegToDecrement.name,
-                brand: kegToDecrement.brand,
-                price: kegToDecrement.price,
-                alcoholContent: kegToDecrement.alcoholContent,
-                pints: kegToDecrement.pints -=1,
-                pintsSolid: kegToDecrement.pintsSold +=1,
-                id: kegToDecrement.id,
-                key: kegToDecrement.id
-            }
-            this.handleChangingSelectedKeg(pintsToDecrement.id)   
-        } else {
-            this.handleChangingSelectedKeg(this.state.selectedKeg.id)
-        }
-    }
-
-handlePineDecrementing = (selectedKegToDecrement) => {
-  const editedMainKegList = this.state.mainKegList
-  .filter(keg => keg.id !== this.state.selectedKeg.id)
-  .concat(selectedKegToDecrement);
-  this.setState({
-    mainKegList: editedMainKegList,
-    editing: false,
-    selectedKeg: null
-  })
-}
+  handleDecrementingPints = () => {
+      const kegToDecrement = this.state.selectedKeg;
+      if (this.state.selectedKeg.pints !== 0){
+          const pintsToDecrement = {
+              name: kegToDecrement.name,
+              brand: kegToDecrement.brand,
+              price: kegToDecrement.price,
+              alcoholContent: kegToDecrement.alcoholContent,
+              pints: kegToDecrement.pints -=1,
+              pintsSolid: kegToDecrement.pintsSold +=1,
+              id: kegToDecrement.id,
+              key: kegToDecrement.id
+          }
+          this.handleChangingSelectedKeg(pintsToDecrement.id)   
+      } else {
+          this.handleChangingSelectedKeg(this.state.selectedKeg.id)
+      }
+  }
 
   render() {
     
     let currentlyVisibleState = null;
     let buttonText = null;
-
-
 
     if (this.state.editing ) {      
       currentlyVisibleState = 
@@ -121,6 +108,7 @@ handlePineDecrementing = (selectedKegToDecrement) => {
         kegList={this.state.mainKegList} 
         onKegSelection={this.handleChangingSelectedKeg} />;
         buttonText = "Add Keg";
+        console.log(this.state.mainKegList);
     }
 
     return(

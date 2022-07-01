@@ -17,10 +17,12 @@ function ReusableForm(props) {
           placeholder='Kombucha Price' />
         <textarea
           className='input-text'
+          type='number'
           name='content'
           placeholder='Alcohol Content' />
         <textarea
           className='input-text'
+          type='number'
           name='pints'
           placeholder='Pints Remaining' />
         <button className='submit-button' type='submit'>{props.buttonText}</button>

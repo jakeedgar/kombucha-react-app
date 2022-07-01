@@ -12,7 +12,7 @@ function NewKegForm(props){
       name: event.target.name.value, 
       price: event.target.price.value, 
       content: event.target.content.value, 
-      pints: event.target.pints.value
+      pints: event.target.pints.value,
     });
   }
 
