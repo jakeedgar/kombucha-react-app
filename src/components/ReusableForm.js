@@ -11,7 +11,7 @@ function ReusableForm(props) {
           name='name'
           placeholder='Kombucha Name' />
         <textarea
-          className='input-number'
+          className='input-text'
           type='number'
           name='price'
           placeholder='Kombucha Price' />
