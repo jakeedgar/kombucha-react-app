@@ -13,6 +13,7 @@ export default function KegList (props) {
         id={keg.id}
         key={keg.id}
         name={keg.name}
+        brand={keg.brand}
         content={keg.content}
         price={keg.price}
         pints={keg.pints}

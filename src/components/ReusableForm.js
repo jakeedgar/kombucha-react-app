@@ -9,6 +9,11 @@ function ReusableForm(props) {
           className='input-text'
           type='text'
           name='name'
+          placeholder='Kombucha Brand Name' />
+        <textarea 
+          className='input-text'
+          type='text'
+          name='name'
           placeholder='Kombucha Name' />
         <textarea
           className='input-text'

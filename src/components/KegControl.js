@@ -12,8 +12,8 @@ class KegControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       mainKegList: [
-        { id: v4(), name: "Synergy", content: 0.3, price: 350, pints: 124, pintsSold: 0 },
-        { id: v4(), name: "Tom's Hard Kombucha", content: 7, price: 1000, pints: 124, pintsSold: 0 }
+        { id: v4(), name: "RaspBERRY", brand: "New York Kompany", content: 0.3, price: 350, pints: 124, pintsSold: 0 },
+        { id: v4(), name: "Yellow Brick Road", brand: "Tom's Hard Kombucha", content: 7, price: 1000, pints: 124, pintsSold: 0 }
       ],
       selectedKeg: null,
       editing: false
@@ -70,20 +70,20 @@ class KegControl extends React.Component {
     });
   }
 
-  handleDecrementingPints = () => {
-      const kegToDecrement = this.state.selectedKeg;
+  handlePintSales = () => {
+      const kegToChange = this.state.selectedKeg;
       if (this.state.selectedKeg.pints !== 0){
-          const pintsToDecrement = {
-              name: kegToDecrement.name,
-              brand: kegToDecrement.brand,
-              price: kegToDecrement.price,
-              alcoholContent: kegToDecrement.alcoholContent,
-              pints: kegToDecrement.pints -=1,
-              pintsSolid: kegToDecrement.pintsSold +=1,
-              id: kegToDecrement.id,
-              key: kegToDecrement.id
+          const pintsToSell = {
+              name: kegToChange.name,
+              brand: kegToChange.brand,
+              price: kegToChange.price,
+              alcoholContent: kegToChange.alcoholContent,
+              pints: kegToChange.pints -=1,
+              pintsSolid: kegToChange.pintsSold +=1,
+              id: kegToChange.id,
+              key: kegToChange.id
           }
-          this.handleChangingSelectedKeg(pintsToDecrement.id)   
+          this.handleChangingSelectedKeg(pintsToSell.id)   
       } else {
           this.handleChangingSelectedKeg(this.state.selectedKeg.id)
       }
@@ -106,7 +106,7 @@ class KegControl extends React.Component {
         keg = {this.state.selectedKeg} 
         onClickingDelete = {this.handleDeletingKeg} 
         onClickingEdit = {this.handleEditClick} 
-        onClickingDecrement = {this.handleDecrementingPints}/>
+        onClickingSell = {this.handlePintSales}/>
         buttonText = "Return to Keg List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = 
