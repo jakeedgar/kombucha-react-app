@@ -16,6 +16,7 @@ export default function KegList (props) {
         content={keg.content}
         price={keg.price}
         pints={keg.pints}
+        pintsSold={keg.pintsSold}
       />
       )}
     </React.Fragment>

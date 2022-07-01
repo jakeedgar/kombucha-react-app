@@ -1,6 +1,9 @@
 import React from "react";
 import { v4 } from 'uuid';
 import KegList from './KegList'
+import KegDetail from "./KegDetail";
+import KegEditForm from './KegEditForm';
+import NewKegForm from './NewKegForm'
 
 class KegControl extends React.Component {
 
@@ -9,8 +12,8 @@ class KegControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       mainKegList: [
-        { id: v4(), name: "Synergy", content: 0.3, price: 350, pints: 124 },
-        { id: v4(), name: "Tom's Hard Kombucha", content: 7, price: 1000, pints: 124 }
+        { id: v4(), name: "Synergy", content: 0.3, price: 350, pints: 124, pintsSold: 0 },
+        { id: v4(), name: "Tom's Hard Kombucha", content: 7, price: 1000, pints: 124, pintsSold: 0 }
       ],
       selectedKeg: null,
       editing: false
@@ -72,22 +75,38 @@ class KegControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if(this.state.editing) {
-      currentlyVisibleState = null;
-    }
 
-    currentlyVisibleState = 
+
+    if (this.state.editing ) {      
+      currentlyVisibleState = 
+      <KegEditForm 
+        keg = {this.state.selectedKeg} 
+        onEditKeg = {this.handleEditingKegInList} />
+        buttonText = "Return to Keg List";
+    } else if (this.state.selectedKeg != null) {
+      currentlyVisibleState = 
+      <KegDetail 
+        keg = {this.state.selectedKeg} 
+        onClickingDelete = {this.handleDeletingKeg} 
+        onClickingEdit = {this.handleEditClick} />
+        buttonText = "Return to Keg List";
+    } else if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = 
+      <NewKegForm 
+        onNewKegCreation={this.handleAddingNewKegToList}  />;
+        buttonText = "Return to Keg List";
+    } else {
+      currentlyVisibleState = 
       <KegList 
-        mainKegList={this.state.mainKegList} 
-        onKegSelection={this.handleChangingSelectedKeg} 
-        buttonText = "Add Keg"/>;
+        kegList={this.state.mainKegList} 
+        onKegSelection={this.handleChangingSelectedKeg} />;
+        buttonText = "Add Keg";
+    }
 
     return(
       <React.Fragment>
-        <div>
-          {currentlyVisibleState}
-        </div>
-        <button>Submit</button>
+        {currentlyVisibleState}
+        <button className='submit-button' onClick={this.handleClick}>{buttonText}</button> 
       </React.Fragment>
     )
   }

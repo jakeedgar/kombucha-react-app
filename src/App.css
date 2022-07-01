@@ -2,3 +2,38 @@
   text-align: center;
 }
 
+.keg-button, .submit-button {
+  width: auto;
+  margin: 1rem;
+  padding: .5rem;
+  border-radius: .75em;
+  align-items: center;
+}
+
+.submit-button {
+  align-items: center;
+  position: relative;
+  bottom: 1.05rem;
+}
+
+/* .ticket-button:hover,
+.submit-ticket-button:hover {
+  background-color: rgb(185, 174, 153);
+  cursor: pointer;
+} */
+
+hr.line {
+  display: flex;
+  width: 80%;
+  text-align: center;
+}
+
+hr.line-small {
+  width: 50%
+}
+
+.input-text {
+  margin: .3em;
+  text-align: center;
+  align-items: center;
+}
