@@ -8,11 +8,11 @@ export default function KegEditForm(props){
   function handleEditKegFormSubmission(event) {
     event.preventDefault();
     props.onEditKeg({
+      brand: event.target.content.value,
       name: event.target.name.value, 
       price: event.target.price.value, 
       content: event.target.content.value, 
       id: keg.id,
-      brand: event.target.content.value,
       pints: keg.pints,
       pintsSold: keg.pintsSold
     });

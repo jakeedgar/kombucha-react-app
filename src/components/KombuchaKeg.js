@@ -24,10 +24,10 @@ function KombuchaKeg (props){
 
   KombuchaKeg.propTypes = {
     id: PropTypes.string,
+    brand: PropTypes.string,
     name: PropTypes.string,
     content: PropTypes.string,
     price: PropTypes.string,
-    brand: PropTypes.string,
     pints: PropTypes.number,
     pintsSold: PropTypes.number,
     whenKegClicked: PropTypes.func

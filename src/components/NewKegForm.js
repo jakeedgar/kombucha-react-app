@@ -9,15 +9,15 @@ function NewKegForm(props){
   event.preventDefault();
   props.onNewKegCreation({
       id: v4(), 
+      brand: event.target.brand.value,
       name: event.target.name.value, 
       price: event.target.price.value, 
       content: event.target.content.value, 
-      brand: event.target.brand.value,
       pints: 124,
       pintsSold: 0
     });
   }
-
+  console.log(NewKegForm);
   return (
     <React.Fragment>
       <ReusableForm

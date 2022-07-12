@@ -12,8 +12,8 @@ class KegControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       mainKegList: [
-        { id: v4(), name: "RaspBERRY", brand: "New York Kompany", content: 0.3, price: 350, pints: 124, pintsSold: 0 },
-        { id: v4(), name: "Yellow Brick Road", brand: "Tom's Hard Kombucha", content: 7, price: 1000, pints: 124, pintsSold: 0 }
+        { id: v4(), name: "RaspBERRY", brand: "New York Kompany", content: "0.3", price: "350", pints: 124, pintsSold: 0 },
+        { id: v4(), name: "Yellow Brick Road", brand: "Tom's Hard Kombucha", content: "7", price: "1000", pints: 124, pintsSold: 0 }
       ],
       selectedKeg: null,
       editing: false

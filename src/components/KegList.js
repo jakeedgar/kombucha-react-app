@@ -12,8 +12,8 @@ export default function KegList (props) {
         whenKegClicked = {props.onKegSelection}
         id={keg.id}
         key={keg.id}
-        name={keg.name}
         brand={keg.brand}
+        name={keg.name}
         content={keg.content}
         price={keg.price}
         pints={keg.pints}
